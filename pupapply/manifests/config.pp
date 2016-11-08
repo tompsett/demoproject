@@ -19,7 +19,9 @@ class pupapply::config {
         logoutput => true,
         cwd => "/home/${pupapply::user}/webapp-${pupapply::version}",
         refreshonly => true,
-        path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/${pupapply::user}/webapp-${pupapply::version}"
+        notify => Exec['bundle_execrailserver'],
+        path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/${pupapply::user}/webapp-${pupapply::version}",
+        require => Exec['bundle_install']
     } 
 
     exec { 'bundle_execrailsserver':
@@ -28,7 +30,7 @@ class pupapply::config {
         environment => "HOME=/home/${pupapply::user}",
         cwd => "/home/${pupapply::user}/webapp-${pupapply::version}",
         path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin",
-        require => Exec['rake_db_migrate'],
+        refreshonly => true,
         unless => "pgrep -f '/usr/bin/ruby2.0 bin/rails server'"
     }
 
