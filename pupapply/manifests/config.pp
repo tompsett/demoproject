@@ -19,7 +19,7 @@ class pupapply::config {
         logoutput => true,
         cwd => "/home/${pupapply::user}/webapp-${pupapply::version}",
         refreshonly => true,
-        notify => Exec['bundle_execrailserver'],
+        notify => Exec['bundle_execrailsserver'],
         path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/${pupapply::user}/webapp-${pupapply::version}",
         require => Exec['bundle_install']
     } 
@@ -30,7 +30,6 @@ class pupapply::config {
         environment => "HOME=/home/${pupapply::user}",
         cwd => "/home/${pupapply::user}/webapp-${pupapply::version}",
         path => "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin",
-        refreshonly => true,
         unless => "pgrep -f '/usr/bin/ruby2.0 bin/rails server'"
     }
 

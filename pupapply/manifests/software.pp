@@ -13,7 +13,8 @@ class pupapply::software {
     # Load the bundler gem (cpl of additional gems were needed). 
     package { $pupapply::params::gems :
         ensure => latest,
-        provider => 'gem'
+        provider => 'gem',
+        require => Package['git']
     }
 
     # Push the app out from files resource, ideally would put artifact somewhere(s3,...) and grab based on version/param
