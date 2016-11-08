@@ -1,0 +1,14 @@
+{
+  "name": "pgt-pupapply",
+  "version": "0.1.0",
+  "author": "pgt",
+  "summary": "Demo app deployment example (rails)",
+  "license": "Apache 2.0",
+  "source": "tbc",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
