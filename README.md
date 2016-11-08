@@ -3,7 +3,7 @@
 ## Overview
 
 Project includes two components. 
-1. CloudFormations template to create single Linux instance with puppet agent
+1. CloudFormations template(cf_rordemo.template) to create single Linux instance with puppet agent
 2. Puppet Module to configure Linux instance to run the ruby on rails app
 
 ## Setup

@@ -10,8 +10,8 @@ class pupapply::software {
         install_options => ['--enablerepo=epel']
     }
 
-    # Load the bundler gem (assume only one ruby install
-    package { 'bundler':
+    # Load the bundler gem (cpl of additional gems were needed). 
+    package { $pupapply::params::gems :
         ensure => latest,
         provider => 'gem'
     }
